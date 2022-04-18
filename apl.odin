@@ -2,7 +2,7 @@ package main
 
 import "core:fmt"
 
-main :: proc() {
+examples :: proc() {
 	{
 		a := [3]f32{1, 2, 3}
 		b := [3]f32{5, 6, 7}
@@ -50,4 +50,38 @@ main :: proc() {
 		fmt.println(x)
 		fmt.println(blah(x))
 	}
+}
+
+chapter_3 :: proc() {
+  fmt.println("Chapter 3 Exercises")
+  // 1. 
+  // On one line, assign the vector 3 4 5 6 7 to the name 'a' and make 'b' = 2*a
+  fmt.println("\n3.1")
+  a := [5]f32{3,4,5,6,7}
+  b := 2 * a
+  fmt.printf("a: %.1f\n", a)
+  fmt.printf("b = 2 * a: %.1f\n", b)
+
+
+  // 3.
+  // Construct a matrix M with 5 rows and 3 columns, consisting of entirely of the number 7. Ditto for a matrix ! of the same size as M, each of whose rows
+  // contain 4 9 11
+  fmt.println("\n3.3")
+
+  // 4.
+  // Convert the matrix m from above into a matrix n of all 1's in at least two different ways
+
+  // 5.
+  // Long word problem
+
+  // 6.
+  // What is the difference between A B. and A,B. ?
+
+}
+
+main :: proc() {
+  when true {
+    chapter_3()
+    examples()
+  }
 }
