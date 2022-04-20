@@ -67,6 +67,12 @@ chapter_3 :: proc() {
   // Construct a matrix M with 5 rows and 3 columns, consisting of entirely of the number 7. Ditto for a matrix ! of the same size as M, each of whose rows
   // contain 4 9 11
   fmt.println("\n3.3")
+  row : [3]f32 = {7,7,7}
+  m := matrix[5,3]f32{}
+  fmt.println("m[1]", m[0])
+  /* m[1] = row */
+  fmt.println("m", m)
+
 
   // 4.
   // Convert the matrix m from above into a matrix n of all 1's in at least two different ways
