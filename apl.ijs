@@ -24,3 +24,7 @@ p=:2 3$w1prices , w2prices
 totalSales=:s*p
 
 
+NB. Chapter 4
+NB. How can I make four1 a function that prints
+NB. the problem, and then the solution?
+
