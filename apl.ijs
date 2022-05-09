@@ -28,3 +28,33 @@ NB. Chapter 4
 NB. How can I make four1 a function that prints
 NB. the problem, and then the solution?
 
+NB. Outer Product a x/ b (example: a */ b or a +/ b
+NB.   1 2 +/ 3 4 5
+NB. 4 5 6
+NB. 5 6 7
+
+
+NB. 3. Given a cube of whose edges have legth L.  Calculate the surace area for l =. 3 7 15 2.7
+saCube=:6**:
+l=:3 7 15 2.7
+fourThree=:saCube l
+
+
+NB. 4. specify a=. 1 2 3 4 and d=. 3 * a.  Find the outer product of a and d with multiplication, and the outer product of d and a using the power function.
+d=:3*a=:1 2 3 4
+fourFourOne=:d*/a
+fourFourTwo=:a^/d
+
+NB. 5. Use the outer product to generate a table of squares and square roots of the integers 1 through 5.
+NB. I am not sure what the author meant by a table...maybe just the powers?  The answers below give the squares and square roots only
+fourFiveOne=:(1+i.5)^/2
+fourFiveTwo=:(1+i.5)^/(%2)
+
+NB. 6. Express the number of seconds in the year (365 days) in scaled notation
+NB. seconds = 365*24*60*60 = 31536000
+fourSix=:3.15636e7
+
+NB. 7. A journeyman snail finishing his apprenticeship is now allowed by the union to travel at a snail's pace (12 ft. per day).  Express this in mph.
+fourSeven=:(12%5280)%24
+fourSevenAlt=:12%5280*24
+
