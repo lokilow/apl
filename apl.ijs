@@ -58,3 +58,33 @@ NB. 7. A journeyman snail finishing his apprenticeship is now allowed by the uni
 fourSeven=:(12%5280)%24
 fourSevenAlt=:12%5280*24
 
+NB. Chapter 5
+NB. Logarithms, Max/Min, Combinations, Residue
+
+NB. 2. Find the lowest price for items in store 1: 15 20 18 32 29, and store 2: 18 20 15 10 49
+price_match=:15 20 18 32 29 <. 18 20 25 10 49
+
+NB. 3. The pH of a solution of its acidity or basicity, and is defined as the base 10 logarithm of the reciprocal of the hydrogen ion concentration in moles/liter of solution.  express the pH of a solution whose concentration is C.
+
+
+NB. 4. Given that A and B are are in a set S integers modulo 5, show that 5|A+B, 5|A*B, 5|A^B are in S.
+5|i.5+/i.5
+5|i.5*/i.5
+5|i.5^/i.5
+
+NB. 5. How can the residue function be used to tell whether one number A is divisible by another number B?
+isDivisibleBy=: 4 : '0=y|x'
+
+NB. 6. Write an expression to tell what clock time it is, given the number of elapsed hours since 12:00
+
+NB. 7. For the equation x + y + z + w = 50 find the number of possible solutions in all different positive integers.
+
+NB. 8. How many quadrilaterals can be formed by joining  groups of 4 points in a collection of 30 points a plane, no 3 of which lie in a straight line.
+
+NB. 9. If 1|N produces the fractional part of N, how can the residue function be used to get the integer part of the number?
+
+NB. 10. Write an expression to get the fractional part of a negative number.
+
+NB. 11. you are given two matrices of prices, A and B. Define a new matrix C such that each element of C is the smaller of the corresponsing elements of A and B.
+
+
