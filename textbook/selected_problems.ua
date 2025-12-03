@@ -54,6 +54,23 @@ Avg′ ← ÷⊃⧻ /+
 Hero ← √/×⊂⤙-⟜(÷2/+)
 ⍤ "Area of [3 4 5] is 6" = 6Hero [3 4 5]
 
+# Chapter 8
+# How can we model the polynomial function 4x^3 + 9x^2 -2x + 3
+X            ← 10
+Powers       ← 3_2_1_0
+Coefficients ← 4_9_¯2_3
+/+× Coefficients ⁿ Powers X
+
+# Write an APL expression to compute the root-mean-square of the elements of a vector.
+RMS ← √÷⊃(⧻|/+ⁿ2)
+
+⁅₂RMS [1 2 3 4]
+
+# Construct an APL expression that will yield a value A id A is greatrer than B, otherwise 0
+Fn ← ⊡⊃(˜>|⊂ 0)
+⍤ "A = 10 B= 20 gives 0" = 0 Fn 10 20
+⍤ "A = 10 B=5 gives 10" = 10 Fn 10 5
+
 # Chapter 18
 # Compression
 # L ← [51 63 61 65 59 62]
