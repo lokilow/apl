@@ -88,7 +88,7 @@ IsDivisible ← =⊸⌊÷⊸(⌊ ÷ 10)
 
 # A certain number N may be either positive or negative.
 # Write a one-line expression to compute its square root if it is positive or its square if it is negative.
-SqOrSqrt ← ⁿ(˜ⁿ2×¯1) ⊸±
+SqOrSqrt ← ⁿ(˜ⁿ2¯) ⊸±
 ⍤ "Square of -2 is 4" = 4 SqOrSqrt ¯2
 ⍤ "Sqrt of 36 is 6" = 6 SqOrSqrt 36
 
