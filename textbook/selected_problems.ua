@@ -71,6 +71,27 @@ Fn ← ⊡⊃(˜>|⊂ 0)
 ⍤ "A = 10 B= 20 gives 0" = 0 Fn 10 20
 ⍤ "A = 10 B=5 gives 10" = 10 Fn 10 5
 
+# Chapter 9
+# Write an algorithm to test an integer N for the following:
+# if the final digit is deleted, the original number is divisible by the new one
+IsDivisible ← =⊸⌊÷⊸(⌊ ÷ 10)
+
+⍤ "120 is divisible by 12" = 1 IsDivisible 120
+⍤ "123 is divisible by 12" = 0 IsDivisible 123
+
+# Write an expression to construct a 4x4 matrix made up of random integers in the range 1 to 100
+# Here are 3 ways
+
+˙⊞⋅⋅⚂₁₀₀↯ [4 4]
+↯ [4 4]⍥⚂₁₀₀ 16
+⌊×100 ↯[4 4] gen 16
+
+# A certain number N may be either positive or negative.
+# Write a one-line expression to compute its square root if it is positive or its square if it is negative.
+SqOrSqrt ← ⁿ(˜ⁿ2×¯1) ⊸±
+⍤ "Square of -2 is 4" = 4 SqOrSqrt ¯2
+⍤ "Sqrt of 36 is 6" = 6 SqOrSqrt 36
+
 # Chapter 18
 # Compression
 # L ← [51 63 61 65 59 62]
