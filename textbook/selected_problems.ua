@@ -82,15 +82,34 @@ IsDivisible ← =⊸⌊÷⊸(⌊ ÷ 10)
 # Write an expression to construct a 4x4 matrix made up of random integers in the range 1 to 100
 # Here are 3 ways
 
-˙⊞⋅⋅⚂₁₀₀↯ [4 4]
-↯ [4 4]⍥⚂₁₀₀ 16
-⌊×100 ↯[4 4] gen 16
+M  ← ˙⊞⋅⋅⚂₁₀₀↯ [4 4]
+M′ ← ↯ [4 4]⍥⚂₁₀₀ 16
+M″ ← ⌊×100 ↯[4 4] gen 16
 
 # A certain number N may be either positive or negative.
 # Write a one-line expression to compute its square root if it is positive or its square if it is negative.
 SqOrSqrt ← ⁿ(˜ⁿ2¯) ⊸±
 ⍤ "Square of -2 is 4" = 4 SqOrSqrt ¯2
 ⍤ "Sqrt of 36 is 6" = 6 SqOrSqrt 36
+
+# Chapter 10
+# Define a function EQ which evaluates the expression (X - 2)(X - 3)
+EQ ← /×+[¯2 ¯3]
+⍤ "(10 -2)(10 - 3) is 56" = 56 EQ 10
+# A well known formula (Ohm's Law) in electrical work gives the combined resistance (RT)
+# of several resistances R1, R2, etc, wired in parallel as 1/RT = 1/R1 + 1/R2
+# Define a function PR that calculates RT for a vector M of resistances in parallel
+PR ← ˜÷1/+˜÷ 1
+⍤ ⤙= 2 PR [5 5 10]
+
+# To find the standard deviation of a set of numbers, the following steps are necesary:
+# 1: Compute the mean 2: Find the difference of each number from the mean
+# 3: Square the differences 4: Take the square root of the average of step 3.
+# Write a function SD that computes the standard deviation of some data X
+Avg ← ÷ ⊃⧻/+
+⍤ ⤙=5Avg [2 4 6 8]
+SD ← √Avg˙×-⊸Avg
+⍤ ⤙= 2 SD [1 2 3 4 5 6 7]
 
 # Chapter 18
 # Compression
