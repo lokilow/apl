@@ -42,11 +42,14 @@ Avg′ ← ÷⊃⧻ /+
 # Minus reduction
 # Reduce goes from left to right. This is different from APL, which goes from right to left
 \- [3 8 2 5] ## [3 5 ¯3 8] 
+◌
 # you can reverse the list to get right to left
 \- ⇌[3 2 1 4]
+◌
 
 # Calculating Pi
-×4/-⇌˜÷ 1+1×2⇡ 1000000 ## 3.1415916535897934 
+×4/-⇌˜÷ 1+1×2⇡10000000 ## 3.1415925535897933 
+◌
 
 # Set up an algorithm in APL to calculate the area of a triangle by Hero's formula
 # Semiperimeter ← ÷ 2/+
@@ -60,11 +63,13 @@ X            ← 10
 Powers       ← 3_2_1_0
 Coefficients ← 4_9_¯2_3
 /+× Coefficients ⁿ Powers X
+◌
 
 # Write an APL expression to compute the root-mean-square of the elements of a vector.
 RMS ← √÷⊃(⧻|/+ⁿ2)
 
-⁅₂RMS [1 2 3 4]
+⁅₂RMS [1 2 3 4] ## 2.74 
+◌
 
 # Construct an APL expression that will yield a value A id A is greatrer than B, otherwise 0
 Fn ← ⊡⊃(˜>|⊂ 0)
@@ -107,10 +112,65 @@ PR ← ˜÷1/+˜÷ 1
 # 3: Square the differences 4: Take the square root of the average of step 3.
 # Write a function SD that computes the standard deviation of some data X
 Avg ← ÷ ⊃⧻/+
-⍤ ⤙=5Avg [2 4 6 8]
+⍤⤙≍ 5 Avg [2 4 6 8]
 SD ← √Avg˙×-⊸Avg
-⍤ ⤙= 2 SD [1 2 3 4 5 6 7]
+⍤⤙≍ 2 SD [1 2 3 4 5 6 7]
 
+# Chapter 16
+# Write one-line monadic functions returning an explici result to give
+# A) The sum of the square root of first N positive integers
+A ← /+√+1⇡
+# B) The square root of the sum of the first N positive integers
+B ← √ /+⇡
+# C) The geometric mean of the first N positive integers
+C ← ⁿ⊃(˜÷1) (/×+ 1⇡) # would be better to use a fraction, or pass N all the way through the stack?
+⍤ ⤙≍ 2.213 ⁅₃C 4
+
+# Write an expression to generate a vector of 50 1s
+Exp  ← ↯ 50 1
+Exp′ ← ˙÷+1⇡ 50
+
+# Write functions that would approximate each of the following series to N terms:
+# A) 1 - 1/2 + 1/3 - 1/4 + ...
+A ← \-˜÷ 1 + 1 ⇡
+
+# B) 1/0! + x^1/1! + x^2/2!
+# We'll say arg order is B X N
+Fact ← /×+1⇡
+B    ← /+÷≡Fact⤙(˜ⁿ)⊙⇡
+⍤ ⤙≍ 5 B 2 3
+# What if the args were flipped? Much better.
+# Can I gain intuition for stack argument ordering like this?
+B′ ← /+÷≡Fact⟜ⁿ⇡
+⍤ ⤙≍ 5 B′ 3 2
+
+# Write an expression that yields 1 if the array A is scalar, 0 otherwise
+EXP ← ≍ [] △
+⍤⤙≍ 1 EXP 2
+⍤⤙≍ 0 EXP [1 2 3]
+
+# Write an expression to cause 3 2s to be printed out in a vertical column
+↯ [3 1] 2 ## ╭─    
+          ## ╷ 2   
+          ##   2   
+          ##   2   
+          ##     ╯ 
+◌
+
+# Select 100 random positive integers, none of which is greater than 10
+⍥⚂₁₀10 ## [0 8 9 0 4 7 5 1 0 7] 
+◌
+≡⋅⚂₁₀ ⇡ 10 ## [9 6 0 6 9 9 4 0 3 7] 
+◌
+
+# Construct the array:
+\+↯ [4 4] 1 ## ╭─          
+            ## ╷ 1 1 1 1   
+            ##   2 2 2 2   
+            ##   3 3 3 3   
+            ##   4 4 4 4   
+            ##           ╯ 
+◌
 # Chapter 18
 # Compression
 # L ← [51 63 61 65 59 62]
