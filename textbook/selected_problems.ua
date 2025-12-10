@@ -171,6 +171,14 @@ EXP ← ≍ [] △
             ##   4 4 4 4   
             ##           ╯ 
 ◌
+# Chapter 17 (Character Data)
+# Define a function F which takes a single argument A and prints its shape, rank, and number of elements with appropriate
+# descriptive messages
+F ← $"Shape: _, rank: _, number of elements: _" ⊃(△|⊢△ △|/×△)
+F ↯ [2 3 4] 1
+# To print:
+&p
+
 # Chapter 18
 # Compression
 # L ← [51 63 61 65 59 62]
