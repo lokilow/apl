@@ -185,3 +185,60 @@ F ↯ [2 3 4] 1
 # The "0 1 1 0 0 0" compression of L is [63 61]
 # In Uiua, we use the ▽ keep operator
 # ▽ [0 1 1 0 0 0] L
+#
+# Specify D:
+D ← [¯2.1 4 1.9 0 ¯1 ¯4 ¯1.4 0.7 2.5 2]
+# Select components:
+# less than 0.5
+▽⊸< 0.5 D ## [¯2.1 0 ¯1 ¯4 ¯1.4] 
+# equal in magnitude to 4
+▽⊸(=4⌵) D ## [4 ¯4] 
+# less than 1 and greater than or equal to `2 (double filter)
+▽⊸≥¯2▽⊸<1 D ## [0 ¯1 ¯1.4 0.7] 
+# negative and greater than `2 (fork AND)
+▽⊸(×⊃(=¯1±|> ¯2)) D ## [¯1 ¯1.4] 
+◌◌◌◌
+# Define a monadic function to insert the character '-' between each pair of adjacent elements in a vector V
+V ← "abcdefg"
+↘¯1 ⬚@-⌝▽ [1 0] V ## "a-b-c-d-e-f-g" 
+◌
+# For an arbitrary vector V write a function INCR to compute the increments between adjacent elements
+X    ← [1 2 3 4 6 8 10 20 30 40] ## [1 2 3 4 6 8 10 20 30 40] 
+INCR ← -⊃(↘ ¯1|↘ 1)
+INCR X ## [1 1 1 2 2 2 10 10 10] 
+# Even better, use stencil!
+INCR′ ← ⧈-
+INCR′ X ## [1 1 1 2 2 2 10 10 10] 
+◌◌
+# Challenge:
+# Obtain the area under the curve Y=3X^2 between X1 and X2 by breaking it up into rectangles of width I in that interval.
+# Hint: First define F to compute 3*X^2
+
+# Construct an expression that selects the largest element in a three-element vector V and prints a 1 if it exceeds the sum of the remainng two elements, otherwise it prints 0.
+
+# Show how to select the elements with even indices in a vector Y
+
+# Given a sorted array of numbers, construct an expression to insert a given scalar S into the array so that it is still in ascending order. Be sure to handle the case where S is identical to some element in X
+#
+# Write an expression which returns the index of the larges element in a vector W.
+#
+# Define a function to remove all duplicates from a vector
+#
+# Write a program SELECT which takes two arguments and will print that element in the left argument X whose position corresponds to the position of the largest element in the right argument Y.
+#
+# Define a function that takes a literal argument and selects the longest word in it.
+# Make sure it handles multi line strings.
+#
+# Write an expression to delete all occurrences of the letter 'A' from a literal vector 'W'
+#
+# A vector A contains the ages of all employees in Sharp Ascociates. Define a function that will yield the the two ages which are closest to one another.
+#
+#  From an arbitrary matrix M ← ↯ [5 5] ⇡ 25 show how to obtain:
+# The first 3 rows of M
+# The four elements in the upper left corner
+# The last 2 columns of M
+# The four corner elements
+#
+# Sales Problem!
+#
+# Sales Problem 2!
