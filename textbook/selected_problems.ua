@@ -213,6 +213,12 @@ INCR′ X ## [1 1 1 2 2 2 10 10 10]
 # Challenge:
 # Obtain the area under the curve Y=3X^2 between X1 and X2 by breaking it up into rectangles of width I in that interval.
 # Hint: First define F to compute 3*X^2
+F         ← × 3 ⁿ2
+INTERVALS ← +⊢⟜(×⊸(⇡+1˜÷/-))
+AREA      ← ⧈-F INTERVALS
+AREA [0 10] 2 ## [12 36 60 84 108] 
+/+            ## 300 
+◌
 
 # Construct an expression that selects the largest element in a three-element vector V and prints a 1 if it exceeds the sum of the remainng two elements, otherwise it prints 0.
 
