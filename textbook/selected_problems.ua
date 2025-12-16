@@ -261,20 +261,76 @@ SELECT [1 2 3 4 5] [20 10 20 5 20 20 20] ## [1 3 5]
 ◌
 # Define a function that takes a literal argument and selects the longest word in it.
 # Make sure it handles multi line strings.
-#
+Longest ← °□⊣⊏⍏⊸⍚⧻⊜□⊸(×⊃(≠" "|≠"\n"))
+S       ← $ HELLO THIS IS
+          $ A MULTILNE STRING
+Longest S ## "MULTILNE" 
+◌
+
 # Write an expression to delete all occurrences of the letter 'A' from a literal vector 'W'
 KeepNotA ← ▽ ⊸≠@A
 KeepNotA "Hello It's an A another A!" ## "Hello It's an  another !" 
 ◌
 
 # A vector A contains the ages of all employees in Sharp Ascociates. Define a function that will yield the the two ages which are closest to one another.
-#
-#  From an arbitrary matrix M ← ↯ [5 5] ⇡ 25 show how to obtain:
+
+ClosestAges ← ⊏˜⊂ ⊸+1⊢⊸(⊚=⊸/↧ ⧈-)⍆
+ClosestAges [34 38 44 46 37 55 88] ## [37 38] 
+ClosestAges [10 20 30 40]          ## [10 20] 
+◌◌
+
+# From an arbitrary matrix M ← ↯ [5 5] ⇡ 25 show how to obtain:
+M ← ↯ [5 5] ⇡ 25 ## ╭─                 
+                 ## ╷  0  1  2  3  4   
+                 ##    5  6  7  8  9   
+                 ##   10 11 12 13 14   
+                 ##   15 16 17 18 19   
+                 ##   20 21 22 23 24   
+                 ##                  ╯ 
+M
+◌
 # The first 3 rows of M
+↙ 3 M ## ╭─                 
+      ## ╷  0  1  2  3  4   
+      ##    5  6  7  8  9   
+      ##   10 11 12 13 14   
+      ##                  ╯ 
+◌
 # The four elements in the upper left corner
+⍜⍉(⊏[0 1])⊏[0 1] M ### ╭─      
+                   ### ╷ 0 1   
+                   ###   5 6   
+                   ###       ╯ 
+◌
+# ⊡ [[0 0] [0 1] [1 0] [1 1]]M
 # The last 2 columns of M
+⍜⍉(⊏ [¯2 ¯1]) M ## ╭─        
+                ## ╷  3  4   
+                ##    8  9   
+                ##   13 14   
+                ##   18 19   
+                ##   23 24   
+                ##         ╯ 
+◌
 # The four corner elements
-#
+⊡ [[0 0]_[0 ¯1] [¯1 0]_[¯1 ¯1]] M ## ╭─        
+                                  ## ╷  0  4   
+                                  ##   20 24   
+                                  ##         ╯ 
+◌
 # Sales Problem!
-#
+# The quantity of produt sold is related to price
+Quantity ← ˜-600 ×3.7ⁿ2
+# Price may rage from 7.00 to 7.50
+PotentialPrices ← +7×0.01⇡ 50
+# Price to charge is:
+⊢▽=⊸/↥×⊸⟜Quantity PotentialPrices ## 7.35 
+◌
+
 # Sales Problem 2!
+# Total cost can be described by (0.8N) + 10.24 / (sqrt N)
+# N ranges from 0 to 50
+TotalCost ← +⊃(×0.08|˜÷ 10.24 √)
+# Min cost
+⊢▽=⊸(⊸/↧TotalCost)+1⇡50 ## 16 
+◌
