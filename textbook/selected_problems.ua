@@ -256,12 +256,17 @@ Deduplicate′ [1 2 2 2 3 3 4] ## [1 2 3 4]
 ◌
 
 # Write a program SELECT which takes two arguments and will print that element in the left argument X whose position corresponds to the position of the largest element in the right argument Y.
-#
+SELECT ← ˜▽ ⊙(=⊸(⊣ ⍆))
+SELECT [1 2 3 4 5] [20 10 20 5 20 20 20] ## [1 3 5] 
+◌
 # Define a function that takes a literal argument and selects the longest word in it.
 # Make sure it handles multi line strings.
 #
 # Write an expression to delete all occurrences of the letter 'A' from a literal vector 'W'
-#
+KeepNotA ← ▽ ⊸≠@A
+KeepNotA "Hello It's an A another A!" ## "Hello It's an  another !" 
+◌
+
 # A vector A contains the ages of all employees in Sharp Ascociates. Define a function that will yield the the two ages which are closest to one another.
 #
 #  From an arbitrary matrix M ← ↯ [5 5] ⇡ 25 show how to obtain:
