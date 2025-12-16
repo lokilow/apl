@@ -221,15 +221,40 @@ AREA [0 10] 2 ## [12 36 60 84 108]
 ◌
 
 # Construct an expression that selects the largest element in a three-element vector V and prints a 1 if it exceeds the sum of the remainng two elements, otherwise it prints 0.
+NOTRIANGLE ← > ⤚- /↥ ⟜/+
+NOTRIANGLE [5 5 13]  ## 1 
+NOTRIANGLE [5 12 13] ## 0 
+◌ ◌
 
 # Show how to select the elements with even indices in a vector Y
+EvenIndices ← ▽ [1 0]              ## [1 3 5 7 9] 
+EvenIndices [1 2 3 4 5 6 7 8 9 10] ## [1 3 5 7 9] 
+◌
 
 # Given a sorted array of numbers, construct an expression to insert a given scalar S into the array so that it is still in ascending order. Be sure to handle the case where S is identical to some element in X
-#
+F ← ⊂⊂⊃(▽⊸<|∘|▽⊸≥)
+F 30 ⇡ 20    ## [0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 30] 
+F 15 ×2 ⇡ 20 ## [0 2 4 6 8 10 12 14 15 16 18 20 22 24 26 28 30 32 34 36 38] 
+◌◌
+
 # Write an expression which returns the index of the larges element in a vector W.
-#
+LargestIndex ← ⊢⊚=⊸(/↥⍆)
+LargestIndex [2 4 5 6 8 10 4] ## 5 
+LargestIndex [3 10 2 5]       ## 1 
+◌◌
+
 # Define a function to remove all duplicates from a vector
-#
+# deduplicate is a primitive
+Deduplicate ← ◴                     ## [1 2 3 4 5 6] 
+Deduplicate [1 2 3 4 5 1 2 3 4 5 6] ## [1 2 3 4 5 6] 
+◌
+# Use occurrences: Mark each row of an array with its occurrence count
+# Each row in the array becomes a number corresponding to the number of times it has already appeared in the array.
+# When it is equal to 0, it is the first occurrence of a character
+Deduplicate′ ← ▽⊸(=0⧆)       ## [1 2 3 4] 
+Deduplicate′ [1 2 2 2 3 3 4] ## [1 2 3 4] 
+◌
+
 # Write a program SELECT which takes two arguments and will print that element in the left argument X whose position corresponds to the position of the largest element in the right argument Y.
 #
 # Define a function that takes a literal argument and selects the longest word in it.
