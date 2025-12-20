@@ -334,3 +334,32 @@ TotalCost ← +⊃(×0.08|˜÷ 10.24 √)
 # Min cost
 ⊢▽=⊸(⊸/↧TotalCost)+1⇡50 ## 16 
 ◌
+
+# Chapter 19
+# Select the one digit integer elements of a vector V
+▽⊸(=0⌊⌵÷10) [¯20 ¯10 ¯9 ¯1 0 1 8 10 20]        ## [¯9 ¯1 0 1 8] 
+▽⊸(×⊃(< 10|> ¯10)) [¯20 ¯10 ¯9 ¯1 0 1 8 10 20] ## [¯9 ¯1 0 1 8] 
+◌◌
+# Write an expression to determine if two sets of numbers, S1 and S1, have identical elements except possibly for order
+SameElements ← ≍ ∩⍆
+SameElements [1 2 3] [3 2 1] ## 1 
+SameElements "abc" "ced"     ## 0 
+SameElements "abc" "bca"     ## 1 
+◌ ◌ ◌
+# Given a vector of characters S, write an expression to determine how many occurrences of the characters "ABCDEFG" are in S
+S ← "WE ARE ALL GOOD MEN"
+˜⊟∩≡□ ⊕⊃⧻⊢ ⊸⊛ ⍆▽⊸∊ "ABCDEFGHIJKL" S ## ┌─                      
+                                    ## ╷ ∙@A│∙@D│∙@E│∙@G│∙@L   
+                                    ##   ───┼───┼───┼───┼───   
+                                    ##   ∙2 │∙1 │∙3 │∙1 │∙2    
+                                    ##                       ┘ 
+◌
+
+# Define a function to remove the blanks in S
+▽⊸≠" " S ## "WEAREALLGOODMEN" 
+◌
+
+# For an arbitray numerical vector V which has been sorted in ascending order, show how to insert another vecto V1 as to preserve the ordering
+Naive ← ⍆ ⊂
+Naive ⇡ 5 [6 ¯1 2] ## [¯1 0 1 2 2 3 4 6] 
+◌
